@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.css";
+import { NoteTable } from "./NoteTable";
+import { NoteForm } from "./NoteForm/NoteForm";
 
 function App() {
+  const [notes, setNotes] = useState(localStorage.getItem("notes")|| []);
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [notes]);
+  const addNote = (newNote) => {
+    setNotes([...notes, newNote]);
+  };
+  const updateNote = (updatedNote) => {
+    const newNotes = notes.map((x) => {
+      if (x.id === updatedNote.id) {
+        x = updatedNote;
+      }
+      return x;
+    });
+    setNotes(newNotes);
+  };
+  const deleteNote = (dId) => {
+    setNotes(notes.filter((note) => note.id !== dId));
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NoteForm addNote={addNote} updateNote={updateNote}></NoteForm>
+      <br></br>
+      <NoteTable
+        notes={notes}
+        updateNote={updateNote}
+        deleteNote={deleteNote}
+      ></NoteTable>
+    </>
   );
 }
 
