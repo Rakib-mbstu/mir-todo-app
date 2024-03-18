@@ -4,10 +4,16 @@ import { NoteTable } from "./NoteTable";
 import { NoteForm } from "./NoteForm/NoteForm";
 
 function App() {
-  const [notes, setNotes] = useState(localStorage.getItem("notes")|| []);
+  const [notes, setNotes] = useState(
+    JSON.parse(localStorage.getItem("notes")) || []
+  );
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes));
+    setNotes(JSON.parse(localStorage.getItem("notes")) || []);
   }, [notes]);
+  useEffect(() => {
+    document.title = "Mir-todo-app";
+  }, []);
   const addNote = (newNote) => {
     setNotes([...notes, newNote]);
   };
