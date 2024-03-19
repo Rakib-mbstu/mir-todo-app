@@ -1,10 +1,11 @@
 import React from "react";
 import { NoteFormEdit } from "./NoteForm/NoteForm";
 import Button from "react-bootstrap/Button";
+import { ButtonGroup } from "react-bootstrap";
 
 export const NoteTable = ({ notes, updateNote, deleteNote }) => {
   return (
-    <table className="table table-light table-stripped-column">
+    <table className="table table-hover table-light table-striped">
       <thead>
         <tr>
           <th>Title</th>
@@ -27,6 +28,7 @@ export const NoteTable = ({ notes, updateNote, deleteNote }) => {
               <td>{note.createdAt}</td>
               <td>{note.updatedAt}</td>
               <td>
+                <ButtonGroup>
                 <NoteFormEdit
                   updateNote={updateNote}
                   defaultNote={note}
@@ -38,6 +40,7 @@ export const NoteTable = ({ notes, updateNote, deleteNote }) => {
                 >
                   Delete
                 </Button>
+                </ButtonGroup>
               </td>
             </tr>
           );
