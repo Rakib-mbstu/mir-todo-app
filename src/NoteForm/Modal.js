@@ -70,10 +70,9 @@ function AddNoteModal({ addNote, updateNote, defaultNote, label }) {
   };
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="outline-primary" onClick={handleShow}>
         {label}
       </Button>
-
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Enter Details of Note</Modal.Title>
