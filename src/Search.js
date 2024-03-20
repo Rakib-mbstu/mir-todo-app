@@ -1,6 +1,4 @@
 import { useState } from "react";
-import Form from "react-bootstrap/Form";
-import { SearchResult } from "./SearchResults";
 
 export function Search({ notes , setViewNotes}) {
   const [searchItem, setSearchItem] = useState("");
@@ -10,15 +8,11 @@ export function Search({ notes , setViewNotes}) {
     setSearchItem(searchItem);
     const newnotes = notes.filter(note => {
         if(note.title.toLowerCase().includes(searchItem))
-            return note;
-    
+            return note; 
     })
-    setViewNotes(newnotes)
+    setViewNotes(newnotes);
     
   };
-  const filteredNotes = notes.filter((note) =>
-    note.title.toLowerCase().includes(searchItem)
-  );
   return (
     <>
       <div className="">

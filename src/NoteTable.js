@@ -1,9 +1,14 @@
 import React from "react";
 import { NoteFormEdit } from "./NoteForm/NoteForm";
-import Button from "react-bootstrap/Button";
 import { ButtonGroup } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 
 export const NoteTable = ({ notes, updateNote, deleteNote }) => {
+  const deleteHandler = (dId) => {
+    if (window.confirm("Sure to Delete this note?")) {
+      deleteNote(dId);
+    }
+  };
   return (
     <table className="table table-hover table-light table-striped">
       <thead>
@@ -29,17 +34,17 @@ export const NoteTable = ({ notes, updateNote, deleteNote }) => {
               <td>{note.updatedAt}</td>
               <td>
                 <ButtonGroup>
-                <NoteFormEdit
-                  updateNote={updateNote}
-                  defaultNote={note}
-                  label={"Update"}
-                />
-                <Button
-                  variant="outline-danger"
-                  onClick={() => deleteNote(note.id)}
-                >
-                  Delete
-                </Button>
+                  <NoteFormEdit
+                    updateNote={updateNote}
+                    defaultNote={note}
+                    label={"Update"}
+                  />
+                  <Button
+                    variant="outline-danger"
+                    onClick={() => deleteHandler(note.id)}
+                  >
+                    Delete
+                  </Button>
                 </ButtonGroup>
               </td>
             </tr>
