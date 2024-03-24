@@ -1,5 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
+#https://www.studytonight.com/dbms/database-normalization.php/ || 
+#https://www.shiksha.com/online-courses/articles/introduction-to-normalization-sql-tutorial/ 
+# https://beginnersbook.com/2015/05/normalization-in-dbms/
 # dependencies
 /node_modules
 /.pnp

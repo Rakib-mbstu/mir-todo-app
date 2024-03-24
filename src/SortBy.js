@@ -2,10 +2,9 @@
 import { useState } from "react";
 
 export function SortBy({ notes, setViewNotes, dir, setDir }) {
-  const [notesTill, SetNotesTill] = useState(notes);
 
   const handleSort = (event) => {
-    let sortedNotes = [...notesTill];
+    let sortedNotes = [...notes];
     const givenValue = event.target.value;
     switch (givenValue) {
       case "title":
@@ -30,7 +29,6 @@ export function SortBy({ notes, setViewNotes, dir, setDir }) {
       }
     }
     setViewNotes(sortedNotes);
-    SetNotesTill(sortedNotes);
   };
   return (
     <>
