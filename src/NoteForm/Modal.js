@@ -35,7 +35,7 @@ function AddNoteModal({ addNote, updateNote, defaultNote, label }) {
       defaultNote.desc = desc;
       defaultNote.priority = priority;
       defaultNote.status = status;
-      defaultNote.updatedAt = new Date().toISOString();
+      defaultNote.updatedAt =  new Date().toUTCString() ;
       updateNote(defaultNote);
     } else {
       const newNote = {
@@ -44,8 +44,8 @@ function AddNoteModal({ addNote, updateNote, defaultNote, label }) {
         desc: desc,
         priority: priority,
         status: status,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
+        createdAt:  new Date().toUTCString(),
+        updatedAt: new Date().toUTCString(),
       };
       console.log("Note Data:", newNote);
       addNote(newNote);

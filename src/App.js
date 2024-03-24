@@ -6,6 +6,7 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 import InputGroup from "react-bootstrap/InputGroup";
 import { Search } from "./Search";
+import { SortBy } from "./SortBy";
 
 function App() {
   const [notes, setNotes] = useState(
@@ -13,7 +14,7 @@ function App() {
   );
 
   const [viewNotes, setViewNotes] = useState(notes);
-
+  const [dir,setDir] = useState("asc");
   const storeOnLocal = (notes) => {
     localStorage.setItem("notes", JSON.stringify(notes));
   };
@@ -55,6 +56,7 @@ function App() {
             <Search notes={notes} setViewNotes={setViewNotes}></Search>
           </InputGroup>
         </ButtonToolbar>
+        <SortBy notes={notes} setViewNotes={setViewNotes} dir={dir} setDir={setDir}></SortBy>
         <br></br>
         <NoteTable
           notes={viewNotes}

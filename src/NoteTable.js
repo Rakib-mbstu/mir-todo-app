@@ -14,12 +14,12 @@ export const NoteTable = ({ notes, updateNote, deleteNote }) => {
       <thead>
         <tr>
           <th>Title</th>
-          <th>Details</th>
+          <th>Details </th>
           <th>Priority</th>
           <th>Status</th>
           <th>Created</th>
           <th>Updated</th>
-          <th>Actions</th>
+          <th>Actions </th>
         </tr>
       </thead>
       <tbody>
