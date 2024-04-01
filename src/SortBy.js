@@ -1,10 +1,12 @@
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function SortBy({ notes, setViewNotes, dir, setDir }) {
-
+  const [notesNow, setNotesNow] = useState(notes);
+  useEffect(()=>{
+    setNotesNow(notes);
+  },[notes])
   const handleSort = (event) => {
-    let sortedNotes = [...notes];
+    let sortedNotes = [...notesNow];
     const givenValue = event.target.value;
     switch (givenValue) {
       case "title":
@@ -24,10 +26,11 @@ export function SortBy({ notes, setViewNotes, dir, setDir }) {
     }
     if (givenValue === "dsc" || givenValue === "asc") {
       if (givenValue !== dir) {
-        sortedNotes = sortedNotes.reverse();
+        sortedNotes = [...sortedNotes].reverse();
         setDir(givenValue);
       }
     }
+    setNotesNow(sortedNotes);
     setViewNotes(sortedNotes);
   };
   return (

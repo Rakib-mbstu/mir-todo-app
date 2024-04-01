@@ -14,7 +14,7 @@ function App() {
   );
 
   const [viewNotes, setViewNotes] = useState(notes);
-  const [dir,setDir] = useState("asc");
+  const [dir, setDir] = useState("asc");
   const storeOnLocal = (notes) => {
     localStorage.setItem("notes", JSON.stringify(notes));
   };
@@ -50,13 +50,22 @@ function App() {
           aria-label={"Toolbar with Button groups"}
         >
           <ButtonGroup>
-            <NoteForm addNote={addNote} updateNote={updateNote}></NoteForm>
+            <NoteForm
+              addNote={addNote}
+              updateNote={updateNote}
+              label={"Add New Note"}
+            ></NoteForm>
           </ButtonGroup>
           <InputGroup>
             <Search notes={notes} setViewNotes={setViewNotes}></Search>
           </InputGroup>
         </ButtonToolbar>
-        <SortBy notes={notes} setViewNotes={setViewNotes} dir={dir} setDir={setDir}></SortBy>
+        <SortBy
+          notes={notes}
+          setViewNotes={setViewNotes}
+          dir={dir}
+          setDir={setDir}
+        ></SortBy>
         <br></br>
         <NoteTable
           notes={viewNotes}

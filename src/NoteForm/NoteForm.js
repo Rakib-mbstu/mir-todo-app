@@ -1,19 +1,12 @@
 
-import AddNoteModal from "./Modal";
+import ChangeNoteModal from "./Modal";
 
-export function NoteForm({addNote,updateNote}) {
+export function NoteForm({addNote,updateNote,defaultNote,label}) {
   return (
     <>
       <form>
-        <AddNoteModal addNote={addNote} updateNote={updateNote} label={"Add New Note"}/>
+        <ChangeNoteModal addNote={addNote} updateNote={updateNote} defaultNote={defaultNote} label={label}/>
       </form>
     </>
   );
 };
-export function NoteFormEdit({updateNote,defaultNote,label}){
-  return(
-    <>
-    <AddNoteModal updateNote={updateNote} defaultNote={defaultNote} label={label}></AddNoteModal>
-    </>
-  )
-}

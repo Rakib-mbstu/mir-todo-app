@@ -1,5 +1,5 @@
 import React from "react";
-import { NoteFormEdit } from "./NoteForm/NoteForm";
+import { NoteForm } from "./NoteForm/NoteForm";
 import { ButtonGroup } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 
@@ -34,7 +34,7 @@ export const NoteTable = ({ notes, updateNote, deleteNote }) => {
               <td>{note.updatedAt}</td>
               <td>
                 <ButtonGroup>
-                  <NoteFormEdit
+                  <NoteForm
                     updateNote={updateNote}
                     defaultNote={note}
                     label={"Update"}

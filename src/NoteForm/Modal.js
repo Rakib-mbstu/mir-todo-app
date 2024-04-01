@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import { uid } from "uid";
 
-function AddNoteModal({ addNote, updateNote, defaultNote, label }) {
+function ChangeNoteModal({ addNote, updateNote, defaultNote, label }) {
   const [show, setShow] = useState(false);
   const [priority, setPriority] = useState(0);
   const [status, setStatus] = useState("");
@@ -129,4 +129,4 @@ function AddNoteModal({ addNote, updateNote, defaultNote, label }) {
   );
 }
 
-export default AddNoteModal;
+export default ChangeNoteModal;
